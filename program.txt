@@ -1,0 +1,161 @@
+LINUX:
+
+exam@debian:~$ mkdir Sales
+exam@debian:~$ cd Sales
+exam@debian:~/Sales$ mkdir Location1
+exam@debian:~/Sales$ cd Location1
+exam@debian:~/Sales/Location1$ cat >Sales1
+Sales of clothes:       
+Jeans
+T-shirt
+Skirtexam@debian:~/Sales/Location1$ cat >Sales2.txt
+Sales of stationary:
+Pen 
+Pencil
+Eraser
+exam@debian:~/Sales/Location1$ cat >Sales3.txt
+Sales oftoys:
+Rabbit
+Mouse
+exam@debian:~/Sales/Location1$ cd ..
+exam@debian:~/Sales$ mkdir Location2
+exam@debian:~/Sales$ cd Location2
+exam@debian:~/Sales/Location2$ cat >pur1.txt
+This is the first pupose file
+exam@debian:~/Sales/Location2$ cat >pur2.txt
+This is the second purpose file
+exam@debian:~/Sales/Location2$ cd ..
+exam@debian:~/Sales$ mkdir Location3
+exam@debian:~/Sales$ cd Location3
+exam@debian:~/Sales/Location3$ cat >stock1.txt
+Remaining stock of Toys:
+Rabbit
+Rat
+Mouse
+Dog
+Cat
+Penguin
+Dolphin
+Elephant
+Tiger
+Lion
+Monkey 
+exam@debian:~/Sales/Location3$ cat >stock2.txt
+Remaining stock of clothes:
+Jeans
+T-shirt
+crop tops
+
+exam@debian:~/Sales/Location3$ cd ..
+exam@debian:~/Sales$ cd Location2
+xam@debian:~/Sales/Location2$ cat pur1.txt pur2.txt >>purp3.txt
+exam@debian:~/Sales/Location2$ cat pur1.txt
+This is the first pupose file
+exam@debian:~/Sales/Location2$ cat pur2.txt
+This is the second purpose file
+exam@debian:~/Sales/Location2$ cat purp3.txt
+This is the first pupose file
+This is the second purpose file
+
+exam@debian:~$ cp Sales/Location2/purp3.txt ~/Sales/Location3/stock3.txt
+exam@debian:~$ cd Sales
+exam@debian:~/Sales$ cd Location3
+exam@debian:~/Sales/Location3$ cat stock3.txt
+This is the first pupose file
+This is the second purpose file
+exam@debian:~/Sales/Location3$ cd ..
+
+exam@debian:~/Sales$ cd Location3
+exam@debian:~/Sales/Location3$ ls -l stock3.txt
+-rwxr-xr-x 1 exam exam 62 Oct  8 14:54 stock3.txt
+exam@debian:~/Sales/Location3$ chmod a+rwx stock3.txt
+exam@debian:~/Sales/Location3$ ls -l stock3.txt
+-rwxrwxrwx 1 exam exam 62 Oct  8 14:54 stock3.txt
+
+exam@debian:~/Sales/Location2$ cd ..
+exam@debian:~/Sales/Location3$ head -n 10 stock1.txt
+Remaining stock of Toys:
+Rabbit
+Rat
+Mouse
+Dog
+Cat
+Penguin
+Dolphin
+Elephant
+Tiger
+exam@debian:~/Sales$ ls -al
+total 20
+drwxr-xr-x  5 exam exam 4096 Oct  8 14:14 .
+drwxr-xr-x 20 exam exam 4096 Oct  8 14:48 ..
+drwxr-xr-x  2 exam exam 4096 Oct  8 14:11 Location1
+drwxr-xr-x  2 exam exam 4096 Oct  8 14:23 Location2
+drwxr-xr-x  2 exam exam 4096 Oct  8 14:54 Location3
+
+
+
+SHELL:
+
+echo "Select the shape to find volume"
+echo "1.Sphere"
+echo "2.Cube"
+echo "3.Cylinder"
+echo "Enter your choice:"
+read ch
+case $ch in
+    1) echo "Enter the radius of sphere:"
+       read r
+       v=$(((88*r*r*r)/21))
+       echo "The volume of sphere is $v"
+       ;;
+    2) echo "Enter the side of Cube:"
+       read s
+       v=$((s*s*s))
+       echo "The volume of sphere is $v"
+       ;;
+    3) echo "Enter the radius of cylinder:"
+       read r
+       echo "Enter the height of cylinder:"
+       read h
+       v=$(((22*r*r*h)/7))
+       echo "The volume of cylinder is $v"
+       ;;
+    *)echo "Invalid Choice"
+esac
+
+
+OUTPUT:
+
+exam@debian:~$ bash volume.sh
+Select the shape to find volume
+1.Sphere
+2.Cube
+3.Cylinder
+Enter your choice:
+1
+Enter the radius of sphere:
+5
+The volume of sphere is 523
+exam@debian:~$ bash volume.sh
+Select the shape to find volume
+1.Sphere
+2.Cube
+3.Cylinder
+Enter your choice:
+2
+Enter the side of Cube:
+2
+The volume of sphere is 8
+exam@debian:~$ bash volume.sh
+Select the shape to find volume
+1.Sphere
+2.Cube
+3.Cylinder
+Enter your choice:
+3
+Enter the radius of cylinder:
+4
+Enter the height of cylinder:
+3
+The volume of cylinder is 150
+
